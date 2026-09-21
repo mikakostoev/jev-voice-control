@@ -1,0 +1,409 @@
+# App-interface cases: what is visible on a screen + a spoken command → the label that must be clicked.
+# Run: ~/Applications/Jev.app/Contents/MacOS/Jev --eval-clicks Tests/clicks.tsv
+# "@screen name | App" starts a screen; "> phrase<TAB>expected label[<TAB>other actions that are equally right]" is a case
+# ("a|b" = either, "(nothing matches)" = must not click, "(ignore)" = chatter that must not trigger anything).
+# Labels are written the way Jev really gets them: Accessibility names, or OCR lines with previews, times and counters mixed in.
+
+@screen telegram chat list (OCR) | Telegram
+Chats
+Search (⌘K)
+Archived Chats >
+Мама
+Ты поела? Позвони вечером
+08:22
+Работа 🚀
+Антон: скинул макеты в фигму
+03:08
+1
+Saved Messages
+Оплата аренды до 25 числа
+Алексей Петров
+Ок, завтра созвонимся
+Sat
+Квартиры в аренду
+Сдаётся 2-комн · 60 м² · 220 000
+89
+Анна Смирнова
+https://example.com/listing/12345
+Sun
+Спортзал
+Тренировка в 19:00
+✓✓
+Write a message...
+> открой чат с мамой	Мама
+> открой диалог с контактом Анна Смирнова	Анна Смирнова
+> открой чат с Аней	Анна Смирнова
+> открой сохранённые сообщения	Saved Messages
+> открой избранное	Saved Messages
+> зайди в архив	Archived Chats >
+> открой рабочий чат	Работа 🚀
+> нажми на поиск	Search (⌘K)
+> открой чат с Алексеем	Алексей Петров
+> открой диалог с Петровым	Алексей Петров
+> открой квартиры	Квартиры в аренду
+> открой чат спортзала	Спортзал
+> нажми на поле ввода сообщения	Write a message...
+> мама звонила вчера вечером	(ignore)
+> надо бы в спортзал сходить на неделе	(ignore)
+> я на работе до семи	(ignore)
+> открой чат с Дашей	(nothing matches)
+> открой чат с папой	(nothing matches)
+
+@screen telegram open chat (OCR) | Telegram
+Chats
+Search (⌘K)
+Мама
+Работа 🚀
+Saved Messages
+Анна Смирнова
+last seen recently
+Привет! Ты дома?
+Да, только пришёл
+Скинь фотки с выходных
+IMG_2041.jpg
+Reply
+Forward
+Copy
+Pin
+Delete
+Write a message...
+> ответь на сообщение	Reply
+> перешли это	Forward
+> закрепи сообщение	Pin
+> удали сообщение	Delete
+> скопируй сообщение	Copy	copy
+> открой фотку	IMG_2041.jpg
+> вернись в чат с мамой	Мама
+> позвони	(nothing matches)
+
+@screen youtube in a browser (AX) | Dia
+YouTube
+Gmail – Входящие (3)
+GitHub · octocat/hello-world
+Back
+Forward
+Reload
+Главная
+Shorts
+Подписки
+Библиотека
+История
+Поиск
+Lofi hip hop radio – beats to relax/study to
+Как выучить Swift за 30 дней
+Обзор MacBook Air M4: стоит ли брать
+Готовим плов в казане
+Подписаться
+Нравится
+Не нравится
+Поделиться
+Скачать
+Комментарии
+Субтитры
+Во весь экран
+Настройки
+Войти
+> включи лофи	Lofi hip hop radio – beats to relax/study to
+> открой видео про макбук	Обзор MacBook Air M4: стоит ли брать
+> открой видео про свифт	Как выучить Swift за 30 дней
+> включи рецепт плова	Готовим плов в казане
+> подпишись на канал	Подписаться
+> поставь лайк	Нравится
+> поставь дизлайк	Не нравится
+> открой подписки	Подписки
+> переключись на вкладку с почтой	Gmail – Входящие (3)
+> открой вкладку гитхаб	GitHub · octocat/hello-world
+> нажми войти	Войти
+> включи субтитры	Субтитры
+> поделись видео	Поделиться
+> открой историю просмотров	История	history
+> открой шортсы	Shorts
+> покажи комментарии	Комментарии
+> разверни на весь экран	Во весь экран	fullscreen
+> вчера смотрел обзор на макбук кстати	(ignore)
+> плов вкусный получился	(ignore)
+> мне не нравится эта песня	(ignore)
+> купи билет в кино	(nothing matches)
+
+@screen finder window (AX) | Finder
+Назад
+Вперёд
+Вид
+Поделиться
+Теги
+Новая папка
+Поиск
+AirDrop
+Недавние
+Программы
+Рабочий стол
+Документы
+Загрузки
+iCloud Drive
+Отчёт Q3.xlsx
+Резюме.pdf
+Фото из отпуска
+jev
+Снимок экрана 2026-09-20 в 14.03.11
+Договор аренды.docx
+> открой документы	Документы
+> зайди в загрузки	Загрузки
+> открой резюме	Резюме.pdf
+> открой договор	Договор аренды.docx
+> открой папку с фотками	Фото из отпуска
+> создай новую папку	Новая папка
+> открой аирдроп	AirDrop
+> открой отчёт за третий квартал	Отчёт Q3.xlsx
+> открой скриншот	Снимок экрана 2026-09-20 в 14.03.11
+> открой проект джев	jev
+> зайди в айклауд	iCloud Drive
+> открой презентацию	(nothing matches)
+
+@screen system settings (AX) | System Settings
+Поиск
+Wi‑Fi
+Bluetooth
+Сеть
+Уведомления
+Звук
+Фокусирование
+Экранное время
+Основные
+Оформление
+Универсальный доступ
+Пункт управления
+Siri и Spotlight
+Конфиденциальность и безопасность
+Рабочий стол и Dock
+Дисплеи
+Обои
+Аккумулятор
+Клавиатура
+Трекпад
+Принтеры и сканеры
+> открой блютуз	Bluetooth
+> зайди в звук	Звук
+> открой конфиденциальность	Конфиденциальность и безопасность
+> открой раздел безопасность	Конфиденциальность и безопасность
+> настройки клавиатуры	Клавиатура
+> открой вайфай	Wi‑Fi
+> открой батарею	Аккумулятор
+> открой настройки экрана	Дисплеи
+> поменяй обои	Обои
+> открой тачпад	Трекпад
+> открой док	Рабочий стол и Dock
+> открой уведомления	Уведомления
+> открой тёмную тему	Оформление
+> открой режим не беспокоить	Фокусирование
+> открой принтеры	Принтеры и сканеры
+
+@screen spotify (AX) | Spotify
+Главная
+Поиск
+Моя медиатека
+Создать плейлист
+Любимые треки
+Discover Weekly
+Daily Mix 1
+Русский рэп
+Chill Vibes
+Перемешать
+Предыдущий
+Слушать
+Следующий
+Повтор
+Текст
+Очередь
+Подключиться к устройству
+> открой любимые треки	Любимые треки
+> включи дискавер викли	Discover Weekly
+> открой поиск	Поиск
+> перемешай	Перемешать
+> покажи текст песни	Текст
+> открой очередь	Очередь
+> создай плейлист	Создать плейлист
+> включи чил	Chill Vibes
+> открой медиатеку	Моя медиатека
+> включи русский рэп	Русский рэп
+> включи повтор	Повтор
+> подключись к колонке	Подключиться к устройству
+> это мой любимый трек вообще	(ignore)
+> текст у песни странный	(ignore)
+> включи джаз	(nothing matches)
+
+@screen gmail in a browser (AX) | Dia
+Gmail – Входящие (3)
+YouTube
+Написать
+Входящие
+Помеченные
+Отложенные
+Отправленные
+Черновики
+Спам
+Корзина
+Anthropic — Your receipt from Anthropic
+hh.ru — Новые вакансии для вас: iOS разработчик
+Kaspi Bank — Выписка по счёту за август
+GitHub — [jev] Build failed on main
+Ответить
+Переслать
+Удалить
+В архив
+Пометить как непрочитанное
+> напиши новое письмо	Написать
+> открой черновики	Черновики
+> открой письмо от каспи	Kaspi Bank — Выписка по счёту за август
+> открой письмо от гитхаба	GitHub — [jev] Build failed on main
+> открой письмо с вакансиями	hh.ru — Новые вакансии для вас: iOS разработчик
+> открой чек от антропик	Anthropic — Your receipt from Anthropic
+> ответь	Ответить
+> перешли письмо	Переслать
+> удали письмо	Удалить
+> отправь в архив	В архив
+> открой спам	Спам
+> открой отправленные	Отправленные
+> пометь непрочитанным	Пометить как непрочитанное
+> мне письмо от каспи пришло кстати	(ignore)
+> надо ответить ему потом	(ignore)
+> открой письмо от мамы	(nothing matches)
+
+@screen online shop product page (AX) | Dia
+Каталог
+Поиск по сайту
+Заказы
+Избранное
+Корзина
+Войти
+Apple AirPods Pro 2
+Xiaomi Redmi Buds 5
+Sony WH-1000XM5
+Сначала дешёвые
+Сначала популярные
+В корзину
+Купить в один клик
+Отзывы 1 245
+Характеристики
+Описание
+> добавь в корзину	В корзину
+> открой корзину	Корзина
+> покажи отзывы	Отзывы 1 245
+> открой характеристики	Характеристики
+> отсортируй по цене	Сначала дешёвые
+> отсортируй по популярности	Сначала популярные
+> открой аирподсы	Apple AirPods Pro 2
+> открой наушники сони	Sony WH-1000XM5
+> открой избранное	Избранное
+> мои заказы	Заказы
+> купи сразу	Купить в один клик
+> оформи рассрочку	(nothing matches)
+
+@screen save dialog (AX) | TextEdit
+Вы хотите сохранить изменения в документе «Без названия»?
+Сохранить
+Не сохранять
+Отменить
+> не сохраняй	Не сохранять
+> сохрани	Сохранить	save
+> отмена	Отменить	press_escape
+> нажми сохранить	Сохранить	save
+
+@screen permission dialog in English (AX) | Finder
+“Jev” would like to access files in your Downloads folder.
+Don't Allow
+Allow
+> разреши	Allow
+> не разрешай	Don't Allow
+> allow	Allow
+> запрети	Don't Allow
+
+@screen delete confirmation (AX) | Finder
+Are you sure you want to delete “Резюме.pdf”?
+This item will be deleted immediately. You can't undo this action.
+Cancel
+Delete
+> удали	Delete
+> да удаляй	Delete
+> нет не надо	Cancel|(nothing matches)	none|press_escape
+> отмена	Cancel	press_escape
+
+@screen menu bar of a text editor (AX) | Notes
+Файл
+Правка
+Формат
+Вид
+Окно
+Справка
+Новая заметка
+Новая папка
+Закрепить заметку
+Заблокировать заметку
+Экспортировать как PDF…
+Напечатать…
+Покупки на неделю
+Идеи для проекта
+Пароли от вайфая
+> создай новую заметку	Новая заметка
+> открой заметку с покупками	Покупки на неделю
+> открой идеи	Идеи для проекта
+> закрепи заметку	Закрепить заметку
+> экспортируй в пдф	Экспортировать как PDF…
+> распечатай	Напечатать…
+> открой меню формат	Формат
+> открой заметку про отпуск	(nothing matches)
+
+@screen messenger web (OCR, mixed languages) | Dia
+WhatsApp
+Chats
+Status
+Channels
+Communities
+Search or start new chat
+Aigerim 💅
+Го завтра в кино?
+Dad
+Voice message 0:14
+iOS Team
+Marat: PR is ready for review
+Landlord
+Оплата до 5 числа пожалуйста
+Type a message
+> открой чат с папой	Dad
+> открой чат с Айгерим	Aigerim 💅
+> открой чат с арендодателем	Landlord
+> открой статусы	Status
+> начни новый чат	Search or start new chat
+> открой чат с братом	(nothing matches)
+
+@screen x.com home (AX) | Dia
+Home
+Explore
+Notifications
+Chat
+Grok
+Premium
+What's happening?
+Everyone can reply
+Post
+For you
+Following
+Reply
+Repost
+Like
+Bookmark
+Share post
+> post	Post
+> опубликуй	Post
+> нажми пост	Post
+> открой уведомления	Notifications
+> лайкни	Like
+> сделай репост	Repost
+> нажми на поле твита	What's happening?
+> открой грок	Grok
+> сохрани в закладки	Bookmark	bookmark
+> ну и что там в твиттере пишут	(ignore)
+
+# --- known limits (not run): ordinals. Jev sees the items as an unordered set, so "первое видео" / "второй чат"
+# does not resolve even with positions written into the descriptions.
+# [messenger web] открой чат команды → iOS Team   (needs the inference команда = Team; Jev flips between “iOS Team” and “Chats”)
+# [youtube] открой первое видео → Lofi hip hop radio – beats to relax/study to

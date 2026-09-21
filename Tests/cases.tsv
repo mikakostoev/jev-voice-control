@@ -1,0 +1,168 @@
+# phrase<TAB>expected action (a|b = either is fine, the app resolves both)[<TAB>previous command]   —   run: ~/Applications/Jev.app/Contents/MacOS/Jev --eval Tests/cases.tsv
+# single bare words ("post", "Загрузки") sit right at the confidence threshold without a screen, so either outcome is accepted;
+# with the screen in view they are covered in Tests/clicks.tsv
+# --- phrases modelled on real usage (all names and small talk are invented)
+Открой калькулятор	open_app
+Открой Telegram	open_app
+Зайди в браузер	open_app
+Открой браузер	open_app
+Включи YouTube	open_url
+Открой YouTube в браузере	open_url
+Открой контакт	click
+Открой диалог с Анной	click
+Открой диалог с контактом Анна Смирнова	click
+Открой вкладку с погодой	click
+Открой вкладку с расписанием поездов	click
+Поменяй вкладку на прогноз погоды	click
+Закрой вот этот	close_tab
+Пролистай вниз	scroll_down
+Ещё	repeat	Пролистай вниз
+Ещё вниз	scroll_down	Пролистай вниз
+Поставь эмодзи сердечко	emoji
+Хочу пить	none
+Хочешь посмотреть	none
+Хочешь конфету	none
+Не знаю насколько это удобно	none
+Метр	none
+Да	none
+Это моя Аня	none
+Напиши доброе утро	type_text
+Спасибо большое и поставь эмодзи сердечко	type_text|emoji|none
+Загрузки	open_folder|none
+Наведи курсор на Анну	click|none
+Без смайлика но всё равно отправил	none
+Алло привет как дела	none
+Ладно сейчас посмотрю	none
+Я вчера заказал пиццу и там были грибы и много сыра	none
+Как будет стол по-английски	none
+Там в приложении нельзя выбрать что-нибудь другое	none
+У меня яблоко	none
+Открой калькулятр	open_app
+Зайди в мой профиль	click|open_app|none
+Верни назад	go_back
+Нажми кнопку escape	press_escape
+Спасибо дружище	none
+Давай потом	none
+Теперь	none
+настройки телеграма	app_settings
+открой настройки этого приложения	app_settings
+# --- opening things
+открой спотифай	open_app
+запусти заметки	open_app
+переключись на телеграм	open_app
+открой настройки	open_app|click
+открой терминал	open_app
+open safari	open_app
+зайди на гитхаб	open_url
+открой x.com	open_url
+перейди на хабр	open_url
+открой яндекс карты	open_url|open_app
+открой почту гугл	open_url|open_app
+open youtube	open_url
+открой загрузки	open_folder
+открой папку документы	open_folder
+покажи папку с проектами	open_folder
+# --- search
+найди рецепт борща	search
+загугли погоду в Париже	search
+найди на ютубе лофи музыку	search
+поищи в интернете билеты в Стамбул	search
+search for swift concurrency	search
+# --- typing and editing
+напиши привет как дела	type_text
+напиши я скоро буду	type_text
+введи admin	type_text
+type in hello world	type_text
+отправь	press_enter
+энтер	press_enter
+отмена	press_escape
+сотри	delete_text
+очисти поле	delete_text
+сотри последнее слово	delete_word
+с новой строки	new_line
+выдели всё	select_all
+скопируй	copy
+вставь	paste
+вырежи	cut
+отмени действие	undo
+верни отменённое	redo
+сохрани	save
+следующее поле	press_tab
+добавь смайлик огонь	emoji
+поставь лайк эмодзи	emoji
+# --- clicking
+нажми отправить	click|press_enter
+нажми на кнопку войти	click
+кликни подписаться	click
+post	click|none
+reply	click|none
+выбери первый результат	click|none
+открой чат с мамой	click
+# (commands spoken inside app interfaces need the screen to be understood — they live in Tests/clicks.tsv)
+# --- tabs, windows, navigation
+новая вкладка	new_tab
+закрой вкладку	close_tab
+верни вкладку	reopen_tab
+следующая вкладка	next_tab
+предыдущая вкладка	prev_tab
+новое окно	new_window
+открой инкогнито	private_window
+другое окно	next_window
+вернись в прошлую программу	switch_app
+назад	go_back
+вернись назад	go_back
+вперёд	go_forward
+обнови страницу	reload
+адресная строка	address_bar
+скопируй ссылку	copy_link
+добавь в закладки	bookmark
+открой историю	history
+поиск по странице	find
+сверни окно	minimize
+на весь экран	fullscreen
+увеличь	zoom_in
+уменьши масштаб	zoom_out
+# --- scrolling and arrows
+листай вниз	scroll_down
+прокрути ниже	scroll_down
+листай вверх	scroll_up
+в самый низ	scroll_bottom
+в начало страницы	scroll_top
+стрелка вниз	arrow_down
+стрелка вверх	arrow_up
+перемотай вперёд	arrow_right
+перемотай назад	arrow_left
+# --- media and sound
+поставь на паузу	play_pause
+пауза	play_pause
+продолжи видео	play_pause
+включи музыку	music_play_pause
+останови музыку	music_play_pause
+следующий трек	next_track
+переключи песню	next_track
+предыдущий трек	prev_track
+громче	volume_up
+сделай потише	volume_down
+выключи звук	mute
+громкость 50	set_volume
+звук на максимум	set_volume
+# --- apps and system
+закрой телеграм	quit_app
+закрой приложение	quit_app
+выйди из спотифая	quit_app
+сделай скриншот	screenshot
+заблокируй экран	lock_screen
+ещё раз	repeat	громче
+повтори	repeat	следующая вкладка
+# --- chatter that must be ignored
+ну я не знаю что тут делать	none
+сколько сейчас времени интересно	none
+мама звонила вчера вечером	none
+блин опять не работает	none
+так подожди	none
+ага понятно	none
+это вообще нормально	none
+я думаю надо добавить обратную связь	none
+ещё чаю хочу	none
+спасибо	none
+хорошо	none
